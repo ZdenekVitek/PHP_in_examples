@@ -6,13 +6,14 @@
   menu();
   sub_php();
   
-  if (!session_is_registered("st_1")){ 
-    session_register("st_1");$_SESSION['st_1'] = 0;
-    session_register("st_2");$_SESSION['st_2'] = 0;
-    session_register("st_3");$_SESSION['st_3'] = 0;
-    session_register("st_4");$_SESSION['st_4'] = 0;
-    session_register("st_5");$_SESSION['st_5'] = 0;
-    session_register("st_6");$_SESSION['st_6'] = 0;
+  if($_SESSION['st_0']!=1){
+     $_SESSION['st_0'] = 1;
+     $_SESSION['st_1'] = 0;
+     $_SESSION['st_2'] = 0;
+     $_SESSION['st_3'] = 0;
+     $_SESSION['st_4'] = 0;
+     $_SESSION['st_5'] = 0;
+     $_SESSION['st_6'] = 0;
   }
   
   $st_1=$_SESSION['st_1'];
