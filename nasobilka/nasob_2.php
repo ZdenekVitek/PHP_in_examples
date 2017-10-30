@@ -9,7 +9,7 @@
     <hr /><br />
 <?php
   //zadání vstupních hodnot
-  $nasob=$HTTP_POST_VARS[nasob];
+  $nasob=$_POST[nasob];
   echo "<table>";
   echo "<tr><th colspan='5'>Násobky čísla $nasob</th></tr>";
   for($i=1;$i<=10;$i++) {
