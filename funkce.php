@@ -6,8 +6,8 @@ function db_connect(){
   $dbusr="czxhtml-php";
   $dbpassw="passw_xhtml-php";
   $dbname="czxhtml-php";
-  @$link=mysql_pconnect($dbhost,$dbusr,$dbpassw) or die("<p class='nadpis'>Server nepřipojen !!!</p>");
-  @$db=mysql_select_db($dbname,$link) or die("<p class='nadpis'>Databáze nebyla nalezena !!!</p>");
+  @$link=mysqli_connect($dbhost,$dbusr,$dbpassw) or die("<p class='nadpis'>Server nepřipojen !!!</p>");
+  @$db=mysqli_select_db($link,$dbname) or die("<p class='nadpis'>Databáze nebyla nalezena !!!</p>");
 }
 
 function head(){

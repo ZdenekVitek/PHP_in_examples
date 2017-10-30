@@ -9,8 +9,8 @@
     <hr />
 <?php
   //zadání vstupních hodnot
-  $cislo1=$HTTP_POST_VARS[cislo1];
-  $cislo2=$HTTP_POST_VARS[cislo2];
+  $cislo1=$_POST[cislo1];
+  $cislo2=$_POST[cislo2];
   //provedení výpočtů s proměnnými
   $soucet=$cislo1+$cislo2;
   $rozdil=$cislo1-$cislo2;
