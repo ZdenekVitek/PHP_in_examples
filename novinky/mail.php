@@ -8,7 +8,7 @@
     <h1>Novinky e-mailem</h1>
     <hr />
 <?php
-  $mail_nov=$HTTP_POST_VARS[mail_nov];
+  $mail_nov=$_POST[mail_nov];
   $subject="novinky e-mailem";
   $message = "
     <style type='text/css'>
