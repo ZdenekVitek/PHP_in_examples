@@ -35,7 +35,7 @@
     <?php
   }
   //test odeslání formuláře
-  $frm=$HTTP_POST_VARS[frm];
+  $frm=$_POST[frm];
   if(!$frm) {
     formular();
     konec();
@@ -43,16 +43,15 @@
     }
   //ověření uživatelského jména a hesla
   db_connect();
-  $usr_name=$HTTP_POST_VARS[usr_name];
-  $usr_passw=$HTTP_POST_VARS[usr_passw];
+  $usr_name=$_POST[usr_name];
+  $usr_passw=$_POST[usr_passw];
   //$usr_passw=md5($usr_passw);
   $dotaz = "SELECT * FROM klienti WHERE user='$usr_name' AND password='$usr_passw'";
-  $result=mysql_query($dotaz,$link);
-  $pocet = mysql_num_rows($result);
+  $result=mysqli_query($link,$dotaz);
+  $pocet = mysqli_num_rows($result);
   if($pocet==1) {
     echo "<p class='nadpis'>Přihlášení proběhlo korektně</p>";
     $login_ok="1";
-    session_register("login_ok");
     $_SESSION['login_ok'] = $login_ok;
     }
   else {
