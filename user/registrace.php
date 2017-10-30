@@ -34,20 +34,20 @@
     <?php
   }
   //test odeslání formuláře
-  $frm=$HTTP_POST_VARS[frm];
+  $frm=$_POST[frm];
   if(!$frm) {
     formular();
     konec();
     exit();
     }
-  $usr_name=$HTTP_POST_VARS[usr_name];
-  $usr_passw=$HTTP_POST_VARS[usr_passw];
+  $usr_name=$_POST[usr_name];
+  $usr_passw=$_POST[usr_passw];
   $usr_passw=md5($usr_passw);
   //ověření uživatelského jména
   db_connect();
   $dotaz = "SELECT * FROM klienti WHERE user='$usr_name'";
-  $result=mysql_query($dotaz,$link);
-  $pocet = mysql_num_rows($result);
+  $result=mysqli_query($link,$dotaz);
+  $pocet = mysqli_num_rows($result);
   if($pocet==1) {
     formular();
     echo "<p class='nadpis'>Zadané uživatelské jméno již existuje !!!</p>";
@@ -56,7 +56,7 @@
     }
   else {
     $dotaz = "INSERT INTO klienti(user,password) VALUES('$usr_name','$usr_passw')";
-    $result=mysql_query($dotaz,$link);
+    $result=mysqli_query($link,$dotaz);
     echo "<p class='nadpis'>Registrace proběhla v pořádku</p>";
     echo "<form action='user/login.php' method='post'>
       <input type='submit' value='přihlásit' />
